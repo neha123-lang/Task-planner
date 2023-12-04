@@ -1,23 +1,44 @@
 import logo from './logo.svg';
+import React,{useState} from 'react';
 import './App.css';
+import { Routes , Route , Navigate   } from 'react-router-dom';
+import Home from './timer-planner/Home';
+import Login from './login/Login';
+import ForgetPassword from './login/ForgetPassword';
+import Register from './login/Register';
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    // Perform authentication logic
+    // For simplicity, just toggle the login state
+    setIsLoggedIn(true);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+    
+     <Routes>
+     <Route path="/login"  element = {!isLoggedIn ? <Login onLogin={handleLogin} />: <Navigate to="/" />  } />
+     {/* {<Login onLogin={handleLogin} />} */}
+        {/* {isLoggedIn ? <Login onLogin={handleLogin} /> : <Navigate  to="/" />} */}
+      {/* </Route> */}:
+      <Route path="/" element ={ isLoggedIn ? <Home/>:<Navigate to="/login" />}/>
+      {/* <Home/> */}
+      {/* {!isLoggedIn ? <Home/> : <Navigate  to="/login" />} */}
+      {/* </Route> */}
+        
+       
+       
+        <Route path = '/forgetPassword' element ={<ForgetPassword/>}/>
+        <Route path = '/Register' element ={<Register />}/>
+
+
+
+      </Routes>
+      
+      
     </div>
   );
 }
