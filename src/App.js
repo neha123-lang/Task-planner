@@ -20,21 +20,24 @@ function App() {
 
     
      <Routes>
-     <Route path="/login"  element = {!isLoggedIn ? <Login onLogin={handleLogin} />: <Navigate to="/" />  } />
+
+     <Route path="/login"  element = {!isLoggedIn ? <Login onLogin={handleLogin} />: <Navigate to="/" />  }  />
+
      {/* {<Login onLogin={handleLogin} />} */}
         {/* {isLoggedIn ? <Login onLogin={handleLogin} /> : <Navigate  to="/" />} */}
-      {/* </Route> */}:
-      <Route path="/" element ={ isLoggedIn ? <Home/>:<Navigate to="/login" />}/>
+      {/* </Route> */}
+      :
+      <Route path="/" element ={ isLoggedIn ? <Home/>:<Navigate to="/login" />}
+      
+      />
+
       {/* <Home/> */}
       {/* {!isLoggedIn ? <Home/> : <Navigate  to="/login" />} */}
       {/* </Route> */}
-        
-       
-       
-        <Route path = '/forgetPassword' element ={<ForgetPassword/>}/>
-        <Route path = '/Register' element ={<Register />}/>
+      
+      <Route path = '/forgetPassword' element ={<ForgetPassword/>}/>
 
-
+      <Route path = '/Register' element ={<Register />} />
 
       </Routes>
       
