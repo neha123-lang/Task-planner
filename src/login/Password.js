@@ -1,6 +1,6 @@
 import React,{useEffect, useState} from 'react'
 
-const Password = () => {
+const Password = (props) => {
     const [newpassword , setnewpassword] = useState('');
     const [confirmPassword , setconfirmPassword] = useState('');
     const [error , setError] = useState('');
@@ -17,12 +17,21 @@ const validatePassword = (e)=>{
     setconfirmPassword(e.target.value)
 
 }
+
+const setpassword = (e)=>{
+    e.preventDefault();
+    setnewpassword(e.target.value);
+   
+}
+useEffect(()=>{
+    props.onChange(newpassword);
+},[setpassword])
   return (
     <div>
         <form>
             <label>
                 new password
-                <input type="password" value= {newpassword} placeholder='new password' onChange={(e)=>setnewpassword(e.target.value)}/>
+                <input type="password" value= {newpassword} placeholder='new password' onChange={setpassword}/>
             </label>
             <label>
                 confirm password

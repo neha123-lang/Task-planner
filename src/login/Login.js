@@ -7,6 +7,7 @@ import { Button, Container } from 'react-bootstrap';
 import { Navbar, Nav } from 'react-bootstrap'
 
 const Login = ({ onLogin }) => {
+  
   return (
     <div className='login'>
       <Container>
@@ -18,6 +19,7 @@ const Login = ({ onLogin }) => {
             <p>Sign in to Time-planner</p>
           </Col>
         </Container>
+        
         <Col md={{ span: 3, offset: 3 }} xs={6} className='text-field'>
           <Form className="mb-4">
             <Form.Control type="text" placeholder='User Name' required />
