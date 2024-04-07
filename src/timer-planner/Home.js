@@ -115,6 +115,7 @@ const Home = () => {
     let formateedMinutes = minutes.toString().padStart(2, '0')
     let formateedSeconds = seconds.toString().padStart(2, '0')
 
+    
     if (forObj) {
       return {
         'hour': formateedHour,
